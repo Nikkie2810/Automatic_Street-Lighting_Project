@@ -1,0 +1,25 @@
+_// C++ code
+// Variable declaration
+int ldrPin=A0;
+int LED = 3;  //  using digital pin 3 for the LED
+int threshold = 500;  // can adjust this value as per your requirement
+void setup() {
+  Serial.begin(9600);
+  pinMode(LED, OUTPUT);
+}
+void loop() {
+  // Read sensor value
+  int data= analogRead(ldrPin);  
+   Serial.println("");
+ 
+  // Check the sensor value against the threshold and control the LED
+  if (data < threshold) {
+    digitalWrite(LED, HIGH);  // Turn on the LED
+  } 
+  else {
+    digitalWrite(LED, LOW);   // Turn off the LED
+  }
+  
+  // Delay for a short period
+  delay(1000);
+}
